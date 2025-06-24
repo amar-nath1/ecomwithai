@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const categories = [
   { name: "Wall Art", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" },
@@ -66,6 +67,7 @@ function useIsMobile() {
 
 // Mobile UI
 function MobileHomePage() {
+  const navigate = useNavigate();
   return (
     <div style={{ background: "#fffdfa", minHeight: "100vh", fontFamily: "Montserrat, sans-serif" }}>
       <header style={{
@@ -92,18 +94,20 @@ function MobileHomePage() {
         <p style={{ fontSize: "1rem", color: "#6d5c2c", margin: "0.5rem 0 0 0" }}>
           Curated home decor & gifting items for every occasion.
         </p>
-        <button style={{
-          marginTop: "1rem",
-          background: "linear-gradient(90deg, #bfa76a 0%, #e7c873 100%)",
-          color: "#222",
-          border: "none",
-          borderRadius: "18px",
-          padding: "0.6rem 1.5rem",
-          fontWeight: 700,
-          fontSize: "1rem",
-          cursor: "pointer",
-          width: "100%"
-        }}>
+        <button
+          onClick={() => navigate('/products')}
+          style={{
+            marginTop: "1rem",
+            background: "linear-gradient(90deg, #bfa76a 0%, #e7c873 100%)",
+            color: "#222",
+            border: "none",
+            borderRadius: "18px",
+            padding: "0.6rem 1.5rem",
+            fontWeight: 700,
+            fontSize: "1rem",
+            cursor: "pointer",
+            width: "100%"
+          }}>
           Shop Now
         </button>
       </div>
@@ -194,6 +198,7 @@ function MobileHomePage() {
 
 // Desktop UI (your previous design)
 function DesktopHomePage() {
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -371,6 +376,7 @@ function DesktopHomePage() {
             Discover curated home decor and premium gifting items to add elegance and warmth to every corner.
           </p>
           <button
+            onClick={() => navigate('/products')}
             style={{
               background: "linear-gradient(90deg, #bfa76a 0%, #e7c873 100%)",
               color: "#222",
